@@ -2,13 +2,13 @@ var Cause = require('../models/Cause.js');
 
 var controller = {
   index: function(req, res){
-    Cause.find({}, function(err, causes){
+    Cause.find({}).populate('organizations').exec(function(err, causes){
       res.json(err || causes)
     })
   },
 
   show: function(req, res){
-    Cause.findById(req.params.id, function(err, cause){
+    Cause.findById(req.params.id).populate('organizations').exec(function(err, cause){
       res.json(err || cause)
     })
   },
