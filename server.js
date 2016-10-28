@@ -24,23 +24,23 @@ mongoose.connect('mongodb://' + mongoUser + ':' + mongoPassword + '@ds137207.mla
 app.use(logger('dev'));
 app.use(bodyParser.json());
 
-app.get('/api/users', usersController.index)
-app.post('/api/users', usersController.create)
-app.get('/api/users/:id', usersController.show)
-app.patch('/api/users/:id', usersController.update)
-app.delete('/api/users/:id', usersController.destroy)
+app.get('/ga-hack/api/users', usersController.index)
+app.post('/ga-hack/api/users', usersController.create)
+app.get('/ga-hack/api/users/:id', usersController.show)
+app.patch('/ga-hack/api/users/:id', usersController.update)
+app.delete('/ga-hack/api/users/:id', usersController.destroy)
 
-app.get('/api/causes', causesController.index)
-app.post('/api/causes', causesController.create)
-app.get('/api/causes/:id', causesController.show)
-app.patch('/api/causes/:id', causesController.update)
-app.delete('/api/causes/:id', causesController.destroy)
+app.get('/ga-hack/api/causes', causesController.index)
+app.post('/ga-hack/api/causes', causesController.create)
+app.get('/ga-hack/api/causes/:id', causesController.show)
+app.patch('/ga-hack/api/causes/:id', causesController.update)
+app.delete('/ga-hack/api/causes/:id', causesController.destroy)
 
-app.get('/api/organizations', organizationsController.index)
-app.post('/api/organizations', organizationsController.create)
-app.get('/api/organizations/:id', organizationsController.show)
-app.patch('/api/organizations/:id', organizationsController.update)
-app.delete('/api/organizations/:id', organizationsController.destroy)
+app.get('/ga-hack/api/organizations', organizationsController.index)
+app.post('/ga-hack/api/organizations', organizationsController.create)
+app.get('/ga-hack/api/organizations/:id', organizationsController.show)
+app.patch('/ga-hack/api/organizations/:id', organizationsController.update)
+app.delete('/ga-hack/api/organizations/:id', organizationsController.destroy)
 
 app.get('/', function(req, res){
   res.json({messages: "Welcome to my site!"});
