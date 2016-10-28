@@ -1,0 +1,26 @@
+{
+  "name": "ga-hack-team4-webbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinpagtakhan/GAHack-Team4-WebBackEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinpagtakhan/GAHack-Team4-WebBackEnd/issues"
+  },
+  "homepage": "https://github.com/kevinpagtakhan/GAHack-Team4-WebBackEnd#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.5",
+    "morgan": "^1.7.0"
+  }
+}
