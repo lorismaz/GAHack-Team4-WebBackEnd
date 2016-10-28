@@ -26,6 +26,7 @@ app.use(bodyParser.json());
 
 app.get('/ga-hack/api/users', usersController.index)
 app.post('/ga-hack/api/users', usersController.create)
+app.post('/ga-hack/api/users/:id/donate', usersController.createDonation)
 app.get('/ga-hack/api/users/:id', usersController.show)
 app.patch('/ga-hack/api/users/:id', usersController.update)
 app.delete('/ga-hack/api/users/:id', usersController.destroy)

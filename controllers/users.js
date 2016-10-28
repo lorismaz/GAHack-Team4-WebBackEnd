@@ -41,6 +41,20 @@ var controller = {
     User.findByIdAndRemove(req.params.id, function(err, user){
       res.json(err || user)
     })
+  },
+
+  createDonation: function(req, res){
+    User.findById(req.params.id, function(err, user){
+      if (err) {
+        res.json(err);
+      } else {
+        var newDonation = req.body;
+        user.donations.push(newDonation);
+        user.save(function(err, user){
+          res.json(err || user);
+        })
+      }
+    })
   }
 }
 
