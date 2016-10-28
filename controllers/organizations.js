@@ -2,23 +2,33 @@ var Organization = require('../models/Organization.js');
 
 var controller = {
   index: function(req, res){
-    res.json({message: 'Organization index'});
+    Organization.find({}, function(err, users){
+      res.json(err || users)
+    })
   },
 
   show: function(req, res){
-    res.json({message: 'Organization show'});
+    Organization.findById(req.params.id, function(err, user){
+      res.json(err || user)
+    })
   },
 
   create: function(req, res){
-    res.json({message: 'Organization create'});
+    Organization.create(req.body, function(err, user){
+      res.json(err || user)
+    })
   },
 
   update: function(req, res){
-    res.json({message: 'Organization update'});
+    Organization.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, user){
+      res.json(err || user)
+    })
   },
 
   destroy: function(req, res){
-    res.json({message: 'Organization destroy'});
+    Organization.findByIdAndRemove(req.params.id, function(err, user){
+      res.json(err || user)
+    })
   }
 }
 

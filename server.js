@@ -13,9 +13,6 @@ var PORT = 3000;
 var mongoUser = process.env.MONGO_USER;
 var mongoPassword = process.env.MONGO_PASS;
 
-console.log(mongoUser);
-console.log(mongoPassword);
-
 mongoose.connect('mongodb://' + mongoUser + ':' + mongoPassword + '@ds137207.mlab.com:37207/ga-conserve', function(err, db){
   if(err) {
     console.log(err);
@@ -25,13 +22,32 @@ mongoose.connect('mongodb://' + mongoUser + ':' + mongoPassword + '@ds137207.mla
 });
 
 app.use(logger('dev'));
+app.use(bodyParser.json());
 
-app.use('/api/users', usersController.index)
-app.use('/api/causes', causesController.index)
-app.use('/api/organizations', organizationsController.index)
+app.get('/api/users', usersController.index)
+app.post('/api/users', usersController.create)
+app.get('/api/users/:id', usersController.show)
+app.patch('/api/users/:id', usersController.update)
+app.delete('/api/users/:id', usersController.destroy)
 
-app.use('/', function(req, res){
+app.get('/api/causes', causesController.index)
+app.post('/api/causes', causesController.create)
+app.get('/api/causes/:id', causesController.show)
+app.patch('/api/causes/:id', causesController.update)
+app.delete('/api/causes/:id', causesController.destroy)
+
+app.get('/api/organizations', organizationsController.index)
+app.post('/api/organizations', organizationsController.create)
+app.get('/api/organizations/:id', organizationsController.show)
+app.patch('/api/organizations/:id', organizationsController.update)
+app.delete('/api/organizations/:id', organizationsController.destroy)
+
+app.get('/', function(req, res){
   res.json({messages: "Welcome to my site!"});
+});
+
+app.get('*', function(req, res){
+  res.json({messages: "404"});
 });
 
 app.listen(PORT, function(err){

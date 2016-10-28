@@ -2,23 +2,33 @@ var Cause = require('../models/Cause.js');
 
 var controller = {
   index: function(req, res){
-    res.json({message: 'Cause index'});
+    Cause.find({}, function(err, causes){
+      res.json(err || causes)
+    })
   },
 
   show: function(req, res){
-    res.json({message: 'Cause show'});
+    Cause.findById(req.params.id, function(err, cause){
+      res.json(err || cause)
+    })
   },
 
   create: function(req, res){
-    res.json({message: 'Cause create'});
+    Cause.create(req.body, function(err, cause){
+      res.json(err || cause)
+    })
   },
 
   update: function(req, res){
-    res.json({message: 'Cause update'});
+    Cause.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, cause){
+      res.json(err || cause)
+    })
   },
 
   destroy: function(req, res){
-    res.json({message: 'Cause destroy'});
+    Cause.findByIdAndRemove(req.params.id, function(err, cause){
+      res.json(err || cause)
+    })
   }
 }
 

@@ -1,24 +1,46 @@
 var User = require('../models/User.js');
 
 var controller = {
+   login: function(req, res){
+
+   },
+
+   register: function(req, res){
+
+   },
+
+   logout: function(req, res){
+
+   },
+
   index: function(req, res){
-    res.json({message: 'User index'});
+    User.find({}, function(err, users){
+      res.json(err || users)
+    })
   },
 
   show: function(req, res){
-    res.json({message: 'User show'});
+    User.findById(req.params.id, function(err, user){
+      res.json(err || user)
+    })
   },
 
   create: function(req, res){
-    res.json({message: 'User create'});
+    User.create(req.body, function(err, user){
+      res.json(err || user)
+    })
   },
 
   update: function(req, res){
-    res.json({message: 'User update'});
+    User.findByIdAndUpdate(req.params.id, req.body, {new:true}, function(err, user){
+      res.json(err || user)
+    })
   },
 
   destroy: function(req, res){
-    res.json({message: 'User destroy'});
+    User.findByIdAndRemove(req.params.id, function(err, user){
+      res.json(err || user)
+    })
   }
 }
 

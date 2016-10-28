@@ -6,7 +6,7 @@ var donationSchema = mongoose.Schema({
 }, { timestamps: true });
 
 var userSchema = mongoose.Schema({
-  name: String,
+  username: String,
   password: String,
   donations: [donationSchema]
 }, { timestamps: true });
