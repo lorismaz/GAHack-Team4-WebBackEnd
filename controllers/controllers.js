@@ -2,7 +2,7 @@ var Model = require('../models/Model.js');
 
 var controller = {
   index: function(req, res){
-    res.json({message: 'works'});
+    res.json({message: 'Welcome to my site'});
   },
 
   show: function(req, res){
